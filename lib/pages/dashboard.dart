@@ -14,7 +14,7 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text('HOME'),
         centerTitle: true,
-        backgroundColor: Colors.lightGreenAccent[200],
+        backgroundColor: Colors.pink[100],
       ),
       backgroundColor: Colors.purple[50],
       body: Container(
