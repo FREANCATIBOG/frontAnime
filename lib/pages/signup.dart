@@ -112,9 +112,34 @@ class _signupState extends State<signup> {
                       },
                       child: Text('Sign Up'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown[300],
+                        backgroundColor: Colors.brown[700],
                         foregroundColor: Colors.white,
                       ),
+                    ),
+                    SizedBox(height: 30.0,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Already Have An Account?',
+                          style: TextStyle(
+                            color: Colors.black87,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                        SizedBox(width: 5.0,),
+                        InkWell(
+                          child: Text(
+                            'Log in Here.',
+                            style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red[600],
+                            ),
+                          ),
+                          onTap: ()=> Navigator.popAndPushNamed(context, '/login'),
+                        ),
+                      ],
                     ),
                   ],
                 ),
