@@ -26,13 +26,13 @@ class _DashboardState extends State<Dashboard> {
                   onPressed: (){
                     Navigator.pushNamed(context, '/menu');
                   },
-                  child: Text('GONNA GO TO MENU?'),
+                  child: Text('MENU'),
                 ),
                 ElevatedButton(
                   onPressed: (){
                     Navigator.pushNamed(context, '/profile');
                   },
-                  child: Text('GONNA GO TO PROFILE '),
+                  child: Text('PROFILE'),
                 ),
               ],
             ),

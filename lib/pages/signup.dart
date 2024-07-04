@@ -22,6 +22,7 @@ class _signupState extends State<signup> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+
               Text(
                 'Lets Get Started',
                 style: TextStyle(
