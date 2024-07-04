@@ -16,20 +16,36 @@ class _loginState extends State<login> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.orange[100],
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'Welcome Back Gar',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    letterSpacing: 2.0,
-                    fontSize: 24.5,
+                Center(
+                  child: Text(
+                    'Hajimemashite!',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      letterSpacing: 2.0,
+                      fontSize: 24.5,
+                    ),
                   ),
+                ),
+                SizedBox(height: 10.0,),
+                Column(
+                  children: [
+                    Container(
+                      color: Colors.black,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0,),
+                        child: Image(
+                          image: AssetImage('assets/Kyuubi.jpg'),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(height: 30.0,),
                 Form(
