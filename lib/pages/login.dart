@@ -56,7 +56,7 @@ class _loginState extends State<login> {
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
-                          label: Text('Email'),
+                          label: Text('Email:'),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
@@ -74,7 +74,7 @@ class _loginState extends State<login> {
                       TextFormField(
                         obscureText: true,
                         decoration: InputDecoration(
-                          label: Text('Password'),
+                          label: Text('Password:'),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),
