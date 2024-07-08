@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/selectedProduct.dart';
 import 'package:untitled/services/product.dart';
 import 'package:untitled/services/menuCard.dart';
 import 'package:http/http.dart' as http;
@@ -86,7 +87,12 @@ Future<List<dynamic>> fetchData() async{
                         ),
                       ],
                     ),
-                      onTap: (){},
+                      onTap: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => selectedProduct(product: products[index]),
+                          )
+                        );
+                      },
                     ),
                     );
                 }
