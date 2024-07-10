@@ -15,7 +15,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('User Profile'),
-        backgroundColor: Colors.brown,
+        backgroundColor: Colors.brown[50],
         centerTitle: true,
       ),
       body:  Padding(
@@ -32,15 +32,15 @@ class _HomeState extends State<Home> {
                     backgroundImage: AssetImage('assets/demon gg.jpg'),
                     backgroundColor: Colors.black12,
 
-                    radius: 120.0,
+                    radius: 130.0,
                   ),
                 ),
                 Divider(
                   height: 55.0,
-                  color: Colors.red[50],
+                  color: Colors.red[700],
                   thickness: 5.0,
                 ),
-                SizedBox(height: 10.0,),
+                SizedBox(height: 20.0,),
                 Row(
                   children: [
                     Icon(
