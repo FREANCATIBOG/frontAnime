@@ -14,7 +14,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text('User Profile'),
+        title: Text(
+            'User Profile',
+            style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+            color: Colors.black,
+            ),
+        ),
         backgroundColor: Colors.brown[50],
         centerTitle: true,
       ),
