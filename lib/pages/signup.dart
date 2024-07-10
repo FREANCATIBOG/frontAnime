@@ -1,5 +1,8 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
+import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import 'package:untitled/services/User.dart';
 class signup extends StatefulWidget {
   const signup({super.key});
 
@@ -12,23 +15,48 @@ class _signupState extends State<signup> {
   String name = '';
   String email = '';
   String password = '';
+  bool _obscure = true;
+  IconData _obscureIcon = Icons.visibility_off;
 
+  createAccount(User user) async{
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/User'),
+      headers:<String, String>{
+        'Content-Type' : 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'username' : user.username,
+        'email' : user.email,
+        'password' : user.password
+      }),
+
+    );
+    print(response.body);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.grey[900],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-
+              Center(
+                child: Image(
+                  image: AssetImage('assets/Junji.jpg'),
+                ),
+              ),
+              SizedBox(height: 20.0),
               Text(
-                'Lets Get Started',
+                'Get Started By Creating your Account:',
                 style: TextStyle(
+                  fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w700,
+                  color: Colors.white,
                   letterSpacing: 2.0,
-                  fontSize: 24.5,
+                  fontSize: 20.0,
                 ),
               ),
               SizedBox(height: 30.0,),
@@ -60,9 +88,11 @@ class _signupState extends State<signup> {
                     ),
                     SizedBox(height: 20.0,),
                    TextFormField(
+
                      keyboardType: TextInputType.emailAddress,
                      decoration: InputDecoration(
                        label: Text('Email'),
+
                        border: OutlineInputBorder(
                          borderRadius: BorderRadius.circular(20.0),
                        ),
@@ -78,9 +108,23 @@ class _signupState extends State<signup> {
                    ),
                     SizedBox(height: 20.0,),
                     TextFormField(
-                      obscureText: true,
+                      obscureText: _obscure,
                       decoration: InputDecoration(
                         label: Text('Password'),
+                        prefixIcon: Icon(Icons.lock_rounded),
+                        suffixIcon: IconButton(
+                          icon: Icon(_obscureIcon),
+                          onPressed: (){
+                            setState(() {
+                              _obscure = !_obscure;
+                              if(_obscure){
+                                _obscureIcon = Icons.visibility_off;
+                              }else{
+                                _obscureIcon = Icons.visibility;
+                              }
+                            });
+                          },
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -106,14 +150,17 @@ class _signupState extends State<signup> {
                       onPressed: (){
                         if(formKey.currentState!.validate()){
                           formKey.currentState!.save();
-                          print(name);
-                          print(email);
-                          print(password);
+                          User user = User(
+                              username: name,
+                              email: email,
+                              password: password
+                          );
+                          createAccount(user);
                         }
                       },
                       child: Text('Sign Up'),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.brown[700],
+                        backgroundColor: Colors.grey[850],
                         foregroundColor: Colors.white,
                       ),
                     ),
@@ -124,7 +171,7 @@ class _signupState extends State<signup> {
                         Text(
                           'Already Have An Account?',
                           style: TextStyle(
-                            color: Colors.black87,
+                            color: Colors.white,
                             fontWeight: FontWeight.normal,
                           ),
                         ),

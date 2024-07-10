@@ -12,10 +12,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink[200],
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text('User Profile'),
-        backgroundColor: Colors.brown[200],
+        backgroundColor: Colors.brown,
         centerTitle: true,
       ),
       body:  Padding(
@@ -29,10 +29,10 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/woman.png'),
-                    backgroundColor: Colors.red[600],
+                    backgroundImage: AssetImage('assets/demon gg.jpg'),
+                    backgroundColor: Colors.black12,
 
-                    radius: 60.0,
+                    radius: 100.0,
                   ),
                 ),
                 Divider(
@@ -44,7 +44,7 @@ class _HomeState extends State<Home> {
                   children: [
                     Icon(
                       Icons.person_2,
-                      color: Colors.black87,
+                      color: Colors.orange[900],
                     ),
                     SizedBox(width: 3.0,),
                     Text(
@@ -70,7 +70,7 @@ class _HomeState extends State<Home> {
                   children: [
                     Icon(
                       Icons.calendar_month_sharp,
-                      color:Colors.black,
+                      color:Colors.orange[900],
                     ),
                     SizedBox(width: 3.0,),
                     Text(
@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
                   children: [
                     Icon(
                       Icons.email_sharp,
-                      color: Colors.black,
+                      color: Colors.orange[900],
                     ),
                     SizedBox(width: 3.0,),
                     Text(
@@ -129,6 +129,7 @@ class _HomeState extends State<Home> {
                       });
                     },
                     child: Text('Add Year'),
+
                 ),
               ],
             ),
