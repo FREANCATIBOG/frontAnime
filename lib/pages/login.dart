@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import '../services/user.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -11,7 +15,30 @@ class _loginState extends State<login> {
   final formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
+  bool obscure = true;
+  IconData ObscureIcon = Icons.visibility_off;
 
+  Widget buttonContent = Text('Log in');
+
+  Widget loadingDisplay = CircularProgressIndicator();
+
+Future<bool>  login(User user) async{
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/api/v1/auth/login'),
+      headers: <String, String>{
+     'Content-Type' : 'application/json; charset=UTF-8',
+    },
+      body: jsonEncode(<String, dynamic>{
+        'usernameOrEmail' : user.email,
+        'password' : user.password
+      }),
+    );
+    if(response.statusCode == 200){
+      return true;
+    }
+    return false;
+    //print(response.body);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,12 +127,32 @@ class _loginState extends State<login> {
                         onPressed: (){
                           if(formKey.currentState!.validate()){
                             formKey.currentState!.save();
-                            print(email);
-                            print(password);
+                            User user = User(
+                              username: '',
+                              email: email,
+                              password: password
+                            );
+                           /*if(login(user)){
+                              Navigator.pushReplacementNamed(context, '/dashboard');
+                            }*/
+                            setState(() {
+                              buttonContent = FutureBuilder(
+                                  future: login(user),
+                                  builder:(context, snapshots){
+                                    if(snapshots.connectionState == ConnectionState.waiting){
+                                      return loadingDisplay;
+                                    }
+                                    if(snapshots.hasData){
+
+                                    }
+                                    return Text('Log in');
+                                  }
+                              );
+                            });
                             Navigator.pushReplacementNamed(context, '/dashboard');
                           }
                         },
-                        child: Text('Log in'),
+                        child: buttonContent,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.brown[800],
                           foregroundColor: Colors.white,

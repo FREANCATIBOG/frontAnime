@@ -25,11 +25,9 @@ class _signupState extends State<signup> {
         'Content-Type' : 'application/json; charset=UTF-8',
       },
       body: jsonEncode(<String, dynamic>{
-        'username' : user.username,
-        'email' : user.email,
+        'usernameOrEmail' : user.email,
         'password' : user.password
       }),
-
     );
     print(response.body);
   }

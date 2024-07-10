@@ -32,14 +32,15 @@ class _HomeState extends State<Home> {
                     backgroundImage: AssetImage('assets/demon gg.jpg'),
                     backgroundColor: Colors.black12,
 
-                    radius: 100.0,
+                    radius: 120.0,
                   ),
                 ),
                 Divider(
                   height: 55.0,
-                  color: Colors.black54,
-                  thickness: 10.0,
+                  color: Colors.red[50],
+                  thickness: 5.0,
                 ),
+                SizedBox(height: 10.0,),
                 Row(
                   children: [
                     Icon(
@@ -50,7 +51,7 @@ class _HomeState extends State<Home> {
                     Text(
                       'NAME',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                         color: Colors.white,
                         letterSpacing: 2.0,
                       ),
@@ -76,7 +77,7 @@ class _HomeState extends State<Home> {
                     Text(
                       'YEAR',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                         color: Colors.white,
                         letterSpacing: 2.0,
                       ),
@@ -102,7 +103,7 @@ class _HomeState extends State<Home> {
                     Text(
                       'EMAIL',
                       style: TextStyle(
-                        fontSize: 16.0,
+                        fontSize: 18.0,
                         color: Colors.white,
                         letterSpacing: 2.0,
                       ),

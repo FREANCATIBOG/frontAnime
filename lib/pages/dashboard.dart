@@ -14,26 +14,36 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text('HOME'),
         centerTitle: true,
-        backgroundColor: Colors.pink[100],
+        backgroundColor: Colors.orange[900],
       ),
-      backgroundColor: Colors.purple[50],
+      backgroundColor: Colors.brown,
       body: Container(
         child: SafeArea(
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/menu');
-                  },
-                  child: Text('MENU'),
+                TextButton(
+                    onPressed: (){Navigator.pushNamed(context, '/menu');},
+                    child: Container(
+                      height: 350,
+                      width: 350,
+                      child: Image(
+                        image: AssetImage('assets/Tomie.jpg'),
+                      ),
+                    )
                 ),
-                ElevatedButton(
-                  onPressed: (){
-                    Navigator.pushNamed(context, '/profile');
-                  },
-                  child: Text('PROFILE'),
-                ),
+            SizedBox(height: 10.0,),
+            TextButton(
+                onPressed: (){Navigator.pushNamed(context, '/profile');},
+                child: Container(
+                  height: 350,
+                  width: 350,
+                  child: Image(
+                    image: AssetImage('assets/hunter.jpg'),
+                  ),
+                )
+            ),
               ],
             ),
           ),
