@@ -21,9 +21,10 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.brown[400],
+        backgroundColor: Colors.blue[200],
       ),
-      backgroundColor: Colors.brown,
+
+      backgroundColor: Colors.purple[50],
       body: Container(
         child: SafeArea(
           child: Center(
@@ -33,19 +34,18 @@ class _DashboardState extends State<Dashboard> {
                 TextButton(
                     onPressed: (){Navigator.pushNamed(context, '/menu');},
                     child: Container(
-                      height: 350,
-                      width: 350,
+                      height: 300,
+                      width: 300,
                       child: Image(
                         image: AssetImage('assets/Tomie.jpg'),
                       ),
                     )
                 ),
-            SizedBox(height: 10.0,),
             TextButton(
                 onPressed: (){Navigator.pushNamed(context, '/profile');},
                 child: Container(
-                  height: 350,
-                  width: 350,
+                  height: 300,
+                  width: 300,
                   child: Image(
                     image: AssetImage('assets/hunter.jpg'),
                   ),

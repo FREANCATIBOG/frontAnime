@@ -38,9 +38,9 @@ Future<List<dynamic>> fetchData() async{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[200],
+      backgroundColor: Colors.purple[50],
       appBar: AppBar(
-        backgroundColor: Colors.pink[200],
+        backgroundColor: Colors.grey,
         foregroundColor: Colors.black87,
         title: Text(
           'Menu',

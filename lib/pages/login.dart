@@ -43,7 +43,7 @@ Future<bool>  login(User user) async{
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.orange[100],
+        backgroundColor: Colors.purple[50],
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.fromLTRB(10.0, 50.0, 10.0, 0),
@@ -65,13 +65,11 @@ Future<bool>  login(User user) async{
                   children: [
                     Container(
                       color: Colors.black,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0,),
                         child: Image(
-                          image: AssetImage('assets/Kyuubi.jpg'),
+                          image: AssetImage('assets/AnimeApp.jpg'),
+
                         ),
                       ),
-                    )
                   ],
                 ),
                 SizedBox(height: 30.0,),
@@ -184,6 +182,67 @@ Future<bool>  login(User user) async{
                       ),
                     ],
                   ),
+                ),
+                const SizedBox(height: 40.0,),
+                Row(
+                  children: <Widget>[
+                    const Expanded(
+                      child: Divider(
+                        height: 1,
+                      ),
+                    ),
+                    const SizedBox(width: 5.0,),
+                    Text(
+                      'Or Sign Up with:',
+                      style: TextStyle(
+                        color: Colors.brown[800],
+                      ),
+                    ),
+                    const SizedBox(width: 5.0,),
+                    const Expanded(
+                      child: Divider(
+                        height: 1,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40.0,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    ElevatedButton(
+                      onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange[50],
+                        foregroundColor: Colors.black,
+                      ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: <Widget>[
+                          ImageIcon(
+                            AssetImage('assets/google-symbol.png'),
+                          ),
+                          SizedBox(width: 80.0,),
+                          Text('Login via Google'),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 10,),
+                    ElevatedButton(
+                        onPressed: (){},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue[200],
+                        foregroundColor: Colors.white,
+                      ),
+                      child: const Row(
+                        children: <Widget>[
+                          Icon(Icons.facebook_sharp),
+                          SizedBox(width: 80.0,),
+                          Text('Login via Facebook')
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
