@@ -31,6 +31,34 @@ class _DashboardState extends State<Dashboard> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                TextField(
+                  decoration: InputDecoration(
+                      label: Text(
+                        'See What is on trend',
+                        style: TextStyle(
+                            color: Colors.black,
+                        ),
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(25.0),
+                          borderSide: BorderSide.none
+                      ),
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      prefixIcon: Icon(
+                          Icons.search_outlined,
+                      ),
+                      prefixIconColor: Colors.grey[900],
+                      hintText: 'See What is on trend',
+                      hintStyle: TextStyle(
+                          color: Colors.grey[500]
+                      ),
+                      filled: true,
+                      fillColor: Colors.blue[50],
+                  ),
+                ),
+                   Padding(
+                     padding: const EdgeInsets.fromLTRB(3.0, 30.0, 3.0, 5.0,),
+                   ),
                 TextButton(
                     onPressed: (){Navigator.pushNamed(context, '/menu');},
                     child: Container(
