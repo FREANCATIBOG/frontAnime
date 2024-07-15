@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/home.dart';
+import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 @override
@@ -34,12 +36,39 @@ class _HomeState extends State<Home> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Center(
-                  child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/demon gg.jpg'),
-                    backgroundColor: Colors.black12,
 
-                    radius: 130.0,
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 50.0, 0, 0),
+                  child: ExpandableCarousel(
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 5),
+                    ),
+                    items: [
+                      'assets/Hunter Hunter.jpg',
+                      'assets/Junji.jpg',
+                      'assets/Kyuubi.jpg',
+                      'assets/AnimeApp.jpg',
+                    ].map((String imagePath) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.pink
+                              ),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: Image.asset(
+                                  imagePath,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                          );
+                        },
+                      );
+                    }).toList(),
                   ),
                 ),
                 Divider(
